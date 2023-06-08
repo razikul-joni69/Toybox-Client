@@ -1,6 +1,7 @@
 import { Rating } from "@smastrom/react-rating";
 import { useContext, useEffect, useState } from "react";
 import { Link } from "react-router-dom";
+import Swal from "sweetalert2";
 import { AuthContext } from "../Providers/AuthProvider";
 
 const MyToys = () => {
@@ -11,7 +12,45 @@ const MyToys = () => {
         fetch(`http://localhost:5000/api/v1/my-toys?email=${user?.email}`)
             .then((res) => res.json())
             .then((data) => setToys(data));
-    }, [user]);
+    }, [user, toys]);
+
+    const handleDelete = (id) => {
+        Swal.fire({
+            title: "Are you sure you want to delete this toy?",
+            text: "You won't be able to revert this!",
+            icon: "warning",
+            showCancelButton: true,
+            confirmButtonColor: "#3085d6",
+            cancelButtonColor: "#d33",
+            confirmButtonText: "Yes, delete it!",
+        }).then((result) => {
+            if (result.isConfirmed) {
+                fetch(`http://localhost:5000/api/v1/toys/delete-toy/${id}`, {
+                    method: "DELETE",
+                    headers: {
+                        "Content-Type": "application/json",
+                    },
+                })
+                    .then((res) => {
+                        if (res.ok) {
+                            Swal.fire({
+                                title: "Deleted!",
+                                text: "Your selected toy has been deleted.",
+                                icon: "success",
+                                timer: 1500,
+                            });
+                        }
+                    })
+                    .catch((err) => {
+                        Swal.fire({
+                            title: "Not Deleted!",
+                            text: err.message,
+                            icon: "error",
+                        });
+                    });
+            }
+        });
+    };
 
     return (
         <div>
@@ -136,14 +175,17 @@ const MyToys = () => {
                                         </Link>
                                     </th>
                                     <th>
-                                        <Link className="">
-                                            <Link className="">
-                                                <img
-                                                    className="w-10"
-                                                    src="https://img.icons8.com/?size=512&id=119057&format=png"
-                                                    alt=""
-                                                />
-                                            </Link>
+                                        <Link
+                                            onClick={() =>
+                                                handleDelete(toy._id)
+                                            }
+                                            className=""
+                                        >
+                                            <img
+                                                className="w-10"
+                                                src="https://img.icons8.com/?size=512&id=119057&format=png"
+                                                alt=""
+                                            />
                                         </Link>
                                     </th>
                                 </tr>
