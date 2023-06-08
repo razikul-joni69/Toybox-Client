@@ -1,4 +1,4 @@
-import { Link } from "react-router-dom";
+import { Link, NavLink } from "react-router-dom";
 import logo from "../../assets/images/logo/logo.png";
 
 const Navbar = () => {
@@ -53,11 +53,10 @@ const Navbar = () => {
                 <div className="navbar-center hidden lg:flex">
                     <ul className="menu menu-horizontal px-1 font-bold text-lg">
                         <li>
-                            <a>Home</a>
+                            <NavLink to="/">Home</NavLink>
                         </li>
-
                         <li>
-                            <a>About</a>
+                            <NavLink to="/alltoys">All Toys</NavLink>
                         </li>
                         <li>
                             <a>Services</a>

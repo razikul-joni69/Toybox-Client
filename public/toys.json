@@ -9,6 +9,7 @@
         "seller_name": "Abdullah Nayeem",
         "price": "$30.97",
         "rating": 3.4,
+        "number_of_reviews": 9,
         "available_quantity": 40
     },
     {
@@ -21,6 +22,7 @@
         "seller_name": "Maruf Shahid",
         "price": "$26.70",
         "rating": 2.1,
+        "number_of_reviews": 9,
         "available_quantity": 35
     },
     {
@@ -33,6 +35,7 @@
         "seller_name": "Abdullah Nayeem",
         "price": "$49.98",
         "rating": 3.8,
+        "number_of_reviews": 9,
         "available_quantity": 23
     },
     {
@@ -45,6 +48,7 @@
         "seller_name": "Razikul Islam",
         "price": "$6.83",
         "rating": 2.8,
+        "number_of_reviews": 9,
         "available_quantity": 41
     },
     {
@@ -57,6 +61,7 @@
         "seller_name": "Abdullah Nayeem",
         "price": "$11.14",
         "rating": 4.3,
+        "number_of_reviews": 9,
         "available_quantity": 11
     },
     {
@@ -69,6 +74,7 @@
         "seller_name": "Abdullah Nayeem",
         "price": "$23.32",
         "rating": 2.2,
+        "number_of_reviews": 9,
         "available_quantity": 24
     },
     {
@@ -81,6 +87,7 @@
         "seller_name": "Razikul Islam",
         "price": "$9.31",
         "rating": 3.4,
+        "number_of_reviews": 9,
         "available_quantity": 32
     },
     {
@@ -93,6 +100,7 @@
         "seller_name": "Razikul Islam",
         "price": "$22.87",
         "rating": 2.3,
+        "number_of_reviews": 9,
         "available_quantity": 27
     },
     {
@@ -105,6 +113,7 @@
         "seller_name": "Sohanur Rahman",
         "price": "$43.13",
         "rating": 2.1,
+        "number_of_reviews": 9,
         "available_quantity": 26
     },
     {
@@ -117,6 +126,7 @@
         "seller_name": "Razikul Islam",
         "price": "$16.69",
         "rating": 4.6,
+        "number_of_reviews": 9,
         "available_quantity": 49
     },
     {
@@ -129,6 +139,7 @@
         "seller_name": "Maruf Shahid",
         "price": "$20.18",
         "rating": 2.8,
+        "number_of_reviews": 9,
         "available_quantity": 29
     },
     {
@@ -141,6 +152,7 @@
         "seller_name": "Razikul Islam",
         "price": "$28.29",
         "rating": 4.3,
+        "number_of_reviews": 9,
         "available_quantity": 7
     },
     {
@@ -153,6 +165,7 @@
         "seller_name": "Razikul Islam",
         "price": "$22.87",
         "rating": 3.6,
+        "number_of_reviews": 9,
         "available_quantity": 15
     },
     {
@@ -165,6 +178,7 @@
         "seller_name": "Maruf Shahid",
         "price": "$12.07",
         "rating": 4.8,
+        "number_of_reviews": 9,
         "available_quantity": 10
     },
     {
@@ -177,6 +191,7 @@
         "seller_name": "Maruf Shahid",
         "price": "$42.62",
         "rating": 3.5,
+        "number_of_reviews": 9,
         "available_quantity": 34
     },
     {
@@ -189,6 +204,7 @@
         "seller_name": "Abdullah Nayeem",
         "price": "$32.19",
         "rating": 2.8,
+        "number_of_reviews": 9,
         "available_quantity": 47
     },
     {
@@ -201,6 +217,7 @@
         "seller_name": "Maruf Shahid",
         "price": "$19.12",
         "rating": 4.2,
+        "number_of_reviews": 9,
         "available_quantity": 32
     },
     {
@@ -213,6 +230,7 @@
         "seller_name": "Maruf Shahid",
         "price": "$44.68",
         "rating": 3.6,
+        "number_of_reviews": 9,
         "available_quantity": 11
     },
     {
@@ -225,6 +243,7 @@
         "seller_name": "Sohanur Rahman",
         "price": "$11.12",
         "rating": 2.9,
+        "number_of_reviews": 9,
         "available_quantity": 15
     },
     {
@@ -237,6 +256,7 @@
         "seller_name": "Sohanur Rahman",
         "price": "$32.37",
         "rating": 4.2,
+        "number_of_reviews": 9,
         "available_quantity": 16
     },
     {
@@ -249,6 +269,7 @@
         "seller_name": "Maruf Shahid",
         "price": "$6.71",
         "rating": 2.5,
+        "number_of_reviews": 9,
         "available_quantity": 28
     },
     {
@@ -261,6 +282,7 @@
         "seller_name": "Razikul Islam",
         "price": "$47.00",
         "rating": 4.6,
+        "number_of_reviews": 9,
         "available_quantity": 41
     },
     {
@@ -273,6 +295,7 @@
         "seller_name": "Razikul Islam",
         "price": "$9.06",
         "rating": 4.8,
+        "number_of_reviews": 9,
         "available_quantity": 34
     },
     {
@@ -285,6 +308,7 @@
         "seller_name": "Razikul Islam",
         "price": "$9.53",
         "rating": 3.5,
+        "number_of_reviews": 9,
         "available_quantity": 20
     },
     {
@@ -297,6 +321,7 @@
         "seller_name": "Sohanur Rahman",
         "price": "$29.16",
         "rating": 3.9,
+        "number_of_reviews": 9,
         "available_quantity": 18
     },
     {
@@ -309,6 +334,7 @@
         "seller_name": "Abdullah Nayeem",
         "price": "$6.00",
         "rating": 2.3,
+        "number_of_reviews": 9,
         "available_quantity": 44
     },
     {
@@ -321,6 +347,7 @@
         "seller_name": "Razikul Islam",
         "price": "$38.13",
         "rating": 3.8,
+        "number_of_reviews": 9,
         "available_quantity": 50
     },
     {
@@ -333,6 +360,7 @@
         "seller_name": "Sohanur Rahman",
         "price": "$43.62",
         "rating": 4.4,
+        "number_of_reviews": 9,
         "available_quantity": 21
     },
     {
@@ -345,6 +373,7 @@
         "seller_name": "Razikul Islam",
         "price": "$14.88",
         "rating": 3.1,
+        "number_of_reviews": 9,
         "available_quantity": 26
     },
     {
@@ -357,6 +386,7 @@
         "seller_name": "Sohanur Rahman",
         "price": "$18.23",
         "rating": 3.5,
+        "number_of_reviews": 9,
         "available_quantity": 13
     },
     {
@@ -369,6 +399,7 @@
         "seller_name": "Maruf Shahid",
         "price": "$14.88",
         "rating": 5.0,
+        "number_of_reviews": 9,
         "available_quantity": 18
     },
     {
@@ -381,6 +412,7 @@
         "seller_name": "Abdullah Nayeem",
         "price": "$47.22",
         "rating": 4.2,
+        "number_of_reviews": 9,
         "available_quantity": 13
     },
     {
@@ -393,6 +425,7 @@
         "seller_name": "Abdullah Nayeem",
         "price": "$24.85",
         "rating": 2.2,
+        "number_of_reviews": 9,
         "available_quantity": 36
     },
     {
@@ -405,6 +438,7 @@
         "seller_name": "Sohanur Rahman",
         "price": "$26.53",
         "rating": 4.0,
+        "number_of_reviews": 9,
         "available_quantity": 24
     },
     {
@@ -417,6 +451,7 @@
         "seller_name": "Razikul Islam",
         "price": "$33.71",
         "rating": 5.0,
+        "number_of_reviews": 9,
         "available_quantity": 45
     },
     {
@@ -429,6 +464,7 @@
         "seller_name": "Sohanur Rahman",
         "price": "$31.44",
         "rating": 2.0,
+        "number_of_reviews": 9,
         "available_quantity": 27
     },
     {
@@ -441,6 +477,7 @@
         "seller_name": "Sohanur Rahman",
         "price": "$29.76",
         "rating": 4.5,
+        "number_of_reviews": 9,
         "available_quantity": 14
     },
     {
@@ -453,6 +490,7 @@
         "seller_name": "Maruf Shahid",
         "price": "$6.63",
         "rating": 3.7,
+        "number_of_reviews": 9,
         "available_quantity": 11
     },
     {
@@ -465,6 +503,7 @@
         "seller_name": "Razikul Islam",
         "price": "$22.94",
         "rating": 3.7,
+        "number_of_reviews": 9,
         "available_quantity": 5
     },
     {
@@ -477,6 +516,7 @@
         "seller_name": "Razikul Islam",
         "price": "$37.76",
         "rating": 2.3,
+        "number_of_reviews": 9,
         "available_quantity": 35
     },
     {
@@ -489,6 +529,7 @@
         "seller_name": "Abdullah Nayeem",
         "price": "$15.49",
         "rating": 2.8,
+        "number_of_reviews": 9,
         "available_quantity": 46
     },
     {
@@ -501,6 +542,7 @@
         "seller_name": "Abdullah Nayeem",
         "price": "$26.03",
         "rating": 4.7,
+        "number_of_reviews": 9,
         "available_quantity": 8
     },
     {
@@ -513,6 +555,7 @@
         "seller_name": "Sohanur Rahman",
         "price": "$20.13",
         "rating": 4.8,
+        "number_of_reviews": 9,
         "available_quantity": 7
     },
     {
@@ -525,6 +568,7 @@
         "seller_name": "Sohanur Rahman",
         "price": "$32.51",
         "rating": 4.9,
+        "number_of_reviews": 9,
         "available_quantity": 20
     },
     {
@@ -537,6 +581,7 @@
         "seller_name": "Sohanur Rahman",
         "price": "$17.84",
         "rating": 3.4,
+        "number_of_reviews": 9,
         "available_quantity": 37
     },
     {
@@ -549,6 +594,7 @@
         "seller_name": "Razikul Islam",
         "price": "$17.42",
         "rating": 3.1,
+        "number_of_reviews": 9,
         "available_quantity": 21
     },
     {
@@ -561,6 +607,7 @@
         "seller_name": "Maruf Shahid",
         "price": "$41.90",
         "rating": 4.6,
+        "number_of_reviews": 9,
         "available_quantity": 13
     },
     {
@@ -573,6 +620,7 @@
         "seller_name": "Sohanur Rahman",
         "price": "$8.03",
         "rating": 2.1,
+        "number_of_reviews": 9,
         "available_quantity": 18
     },
     {
@@ -585,6 +633,7 @@
         "seller_name": "Sohanur Rahman",
         "price": "$13.59",
         "rating": 2.6,
+        "number_of_reviews": 9,
         "available_quantity": 50
     },
     {
@@ -597,6 +646,7 @@
         "seller_name": "Sohanur Rahman",
         "price": "$18.72",
         "rating": 4.9,
+        "number_of_reviews": 9,
         "available_quantity": 20
     }
 ]

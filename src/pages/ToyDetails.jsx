@@ -2,7 +2,7 @@ import { Rating } from "@smastrom/react-rating";
 import { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
 
-const ToyDetails = (props) => {
+const ToyDetails = () => {
     const [toy, setToy] = useState({});
     const [fav, setFav] = useState(false);
     const { id } = useParams();
@@ -43,7 +43,7 @@ const ToyDetails = (props) => {
                                     readOnly
                                 ></Rating>
                                 <span className="text-gray-600 ml-3">
-                                    4 Reviews
+                                    {toy.number_of_reviews} Reviews
                                 </span>
                             </span>
                             <span className="flex ml-3 pl-3 py-2 border-l-2 border-gray-200">
