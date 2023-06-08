@@ -1,7 +1,24 @@
+import { useContext, useState } from "react";
 import { Link, NavLink } from "react-router-dom";
+import { AuthContext } from "../../Providers/AuthProvider";
 import logo from "../../assets/images/logo/logo.png";
+import Loading from "../Loading/Loading";
 
 const Navbar = () => {
+    const { user, loading, logOut } = useContext(AuthContext);
+    const [darkMode, setDarkMode] = useState(false);
+
+    const handleDarkMode = () => {
+        setDarkMode(!darkMode);
+    };
+
+    const handleLogout = () => {
+        logOut();
+    };
+
+    if (loading) {
+        return <Loading />;
+    }
     return (
         <div className="backdrop-blur-xl sticky top-0 z-50">
             <div className="navbar  container mx-auto ">
@@ -71,46 +88,113 @@ const Navbar = () => {
                     </ul>
                 </div>
                 <div className="navbar-end">
-                    <button className="btn btn-ghost btn-circle">
-                        <svg
-                            xmlns="http://www.w3.org/2000/svg"
-                            className="h-5 w-5"
-                            fill="none"
-                            viewBox="0 0 24 24"
-                            stroke="currentColor"
-                        >
-                            <path
-                                strokeLinecap="round"
-                                strokeLinejoin="round"
-                                strokeWidth="2"
-                                d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"
-                            />
-                        </svg>
-                    </button>
-                    <label tabIndex={0} className="btn btn-ghost btn-circle">
-                        <div className="indicator">
-                            <svg
-                                xmlns="http://www.w3.org/2000/svg"
-                                className="h-5 w-5"
-                                fill="none"
-                                viewBox="0 0 24 24"
-                                stroke="currentColor"
+                    {user ? (
+                        <div className="flex space-x-2">
+                            <button className="btn btn-ghost btn-circle">
+                                <svg
+                                    xmlns="http://www.w3.org/2000/svg"
+                                    className="h-5 w-5"
+                                    fill="none"
+                                    viewBox="0 0 24 24"
+                                    stroke="currentColor"
+                                >
+                                    <path
+                                        strokeLinecap="round"
+                                        strokeLinejoin="round"
+                                        strokeWidth="2"
+                                        d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"
+                                    />
+                                </svg>
+                            </button>
+                            <label
+                                tabIndex={0}
+                                className="btn btn-ghost btn-circle"
                             >
-                                <path
-                                    strokeLinecap="round"
-                                    strokeLinejoin="round"
-                                    strokeWidth="2"
-                                    d="M3 3h2l.4 2M7 13h10l4-8H5.4M7 13L5.4 5M7 13l-2.293 2.293c-.63.63-.184 1.707.707 1.707H17m0 0a2 2 0 100 4 2 2 0 000-4zm-8 2a2 2 0 11-4 0 2 2 0 014 0z"
-                                />
-                            </svg>
-                            <span className="badge badge-sm indicator-item">
-                                8
-                            </span>
+                                <div className="indicator">
+                                    <svg
+                                        xmlns="http://www.w3.org/2000/svg"
+                                        className="h-5 w-5"
+                                        fill="none"
+                                        viewBox="0 0 24 24"
+                                        stroke="currentColor"
+                                    >
+                                        <path
+                                            strokeLinecap="round"
+                                            strokeLinejoin="round"
+                                            strokeWidth="2"
+                                            d="M3 3h2l.4 2M7 13h10l4-8H5.4M7 13L5.4 5M7 13l-2.293 2.293c-.63.63-.184 1.707.707 1.707H17m0 0a2 2 0 100 4 2 2 0 000-4zm-8 2a2 2 0 11-4 0 2 2 0 014 0z"
+                                        />
+                                    </svg>
+                                    <span className="badge badge-sm indicator-item">
+                                        8
+                                    </span>
+                                </div>
+                            </label>
+                            <Link className="btn btn-outline btn-error hidden">
+                                Appoinment
+                            </Link>
+                            <div className="dropdown dropdown-end ">
+                                <div>
+                                    <label
+                                        tabIndex={0}
+                                        className="btn btn-ghost btn-circle avatar"
+                                    >
+                                        <div className="w-10 rounded-full ring-2 ring-error">
+                                            <img src={user?.photoURL} />
+                                        </div>
+                                    </label>
+                                    <ul
+                                        tabIndex={0}
+                                        className="menu menu-sm dropdown-content mt-3 p-2 shadow bg-base-100 rounded-box w-52"
+                                    >
+                                        <li>
+                                            <a className="justify-between">
+                                                Profile
+                                            </a>
+                                        </li>
+                                        <li>
+                                            <a>Settings</a>
+                                        </li>
+                                        <li onClick={handleLogout}>
+                                            <a>Logout</a>
+                                        </li>
+                                    </ul>
+                                </div>
+                            </div>
                         </div>
-                    </label>
-                    <Link className="btn btn-outline btn-error">
-                        Appoinment
-                    </Link>
+                    ) : (
+                        <div className="space-x-2">
+                            <button className="btn btn-ghost btn-circle">
+                                <svg
+                                    xmlns="http://www.w3.org/2000/svg"
+                                    className="h-5 w-5"
+                                    fill="none"
+                                    viewBox="0 0 24 24"
+                                    stroke="currentColor"
+                                >
+                                    <path
+                                        strokeLinecap="round"
+                                        strokeLinejoin="round"
+                                        strokeWidth="2"
+                                        d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"
+                                    />
+                                </svg>
+                            </button>
+
+                            <Link
+                                to="login"
+                                className="btn btn-outline btn-error "
+                            >
+                                Login
+                            </Link>
+                            <Link
+                                to="register"
+                                className="btn btn-outline btn-error "
+                            >
+                                Register
+                            </Link>
+                        </div>
+                    )}
                 </div>
             </div>
         </div>
