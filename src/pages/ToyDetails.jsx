@@ -1,11 +1,15 @@
 import { Rating } from "@smastrom/react-rating";
 import { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
+import NotFound from "../components/NotFound/NotFound";
+import { useLocation, useNavigate } from "react-router-dom";
 
 const ToyDetails = () => {
     const [toy, setToy] = useState({});
     const [fav, setFav] = useState(false);
     const { id } = useParams();
+    const location = useLocation();
+    const navigate = useNavigate();
 
     useEffect(() => {
         fetch("/toys.json")
@@ -19,6 +23,12 @@ const ToyDetails = () => {
     const handleFavorite = () => {
         setFav(!fav);
     };
+
+    if (!toy) {
+        let errorPath = (location.pathname = "errorpath");
+        navigate(errorPath);
+    }
+
     return (
         <section className="text-gray-700 body-font overflow-hidden bg-white">
             <div className="container px-5 py-24 mx-auto">

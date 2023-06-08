@@ -1,10 +1,12 @@
 import { createBrowserRouter } from "react-router-dom";
 import Layout from "../Layout/Layout";
+import NotFound from "../components/NotFound/NotFound";
 import AllToys from "../pages/AllToys";
 import Home from "../pages/Home";
-import ToyDetails from "../pages/ToyDetails";
 import Login from "../pages/Login";
 import Register from "../pages/Register";
+import ToyDetails from "../pages/ToyDetails";
+import PrivateRoute from "./PrivateRoute";
 
 const router = createBrowserRouter([
     {
@@ -17,7 +19,11 @@ const router = createBrowserRouter([
             },
             {
                 path: "/toy/:id",
-                element: <ToyDetails />,
+                element: (
+                    <PrivateRoute>
+                        <ToyDetails />
+                    </PrivateRoute>
+                ),
             },
             {
                 path: "alltoys",
@@ -32,6 +38,10 @@ const router = createBrowserRouter([
                 element: <Register />,
             },
         ],
+    },
+    {
+        path: "*",
+        element: <NotFound />,
     },
 ]);
 
