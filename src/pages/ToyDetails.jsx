@@ -48,7 +48,8 @@ const ToyDetails = () => {
                                     readOnly
                                 ></Rating>
                                 <span className="text-gray-600 ml-3">
-                                    {toy.number_of_reviews} Reviews
+                                    {Math.round(Math.random() * 9 + 1 * 9)}{" "}
+                                    Reviews
                                 </span>
                             </span>
                             <span className="flex ml-3 pl-3 py-2 border-l-2 border-gray-200">
@@ -148,7 +149,7 @@ const ToyDetails = () => {
                         </div>
                         <div className="flex">
                             <span className="title-font font-medium text-2xl text-gray-900">
-                                {toy.price}
+                                ${toy.price}
                             </span>
                             <button className="flex ml-auto text-white bg-red-500 border-0 py-2 px-6 focus:outline-none hover:bg-red-600 rounded">
                                 Add To Cart

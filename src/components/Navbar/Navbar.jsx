@@ -70,20 +70,40 @@ const Navbar = () => {
                 <div className="navbar-center hidden lg:flex">
                     <ul className="menu menu-horizontal px-1 font-bold text-lg">
                         <li>
-                            <NavLink to="/">Home</NavLink>
+                            <NavLink
+                                className="focus:text-white focus:bg-black"
+                                to="/"
+                            >
+                                Home
+                            </NavLink>
                         </li>
                         <li>
-                            <NavLink to="/alltoys">All Toys</NavLink>
+                            <NavLink
+                                className="focus:text-white focus:bg-black"
+                                to="/alltoys"
+                            >
+                                All Toys
+                            </NavLink>
                         </li>
                         <li>
-                            <NavLink to="/add-toy">Add Toy</NavLink>
+                            <NavLink
+                                className="focus:text-white focus:bg-black"
+                                to="/add-toy"
+                            >
+                                Add Toy
+                            </NavLink>
+                        </li>
+                        <li>
+                            <NavLink
+                                className="focus:text-white focus:bg-black"
+                                to="/my-toys"
+                            >
+                                My Toys
+                            </NavLink>
                         </li>
 
                         <li>
                             <a>Blog</a>
-                        </li>
-                        <li>
-                            <a>Contact</a>
                         </li>
                     </ul>
                 </div>
