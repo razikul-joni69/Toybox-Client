@@ -1,8 +1,6 @@
 import { Rating } from "@smastrom/react-rating";
 import { useEffect, useState } from "react";
-import { useParams } from "react-router-dom";
-import NotFound from "../components/NotFound/NotFound";
-import { useLocation, useNavigate } from "react-router-dom";
+import { useLocation, useNavigate, useParams } from "react-router-dom";
 
 const ToyDetails = () => {
     const [toy, setToy] = useState({});
@@ -12,12 +10,9 @@ const ToyDetails = () => {
     const navigate = useNavigate();
 
     useEffect(() => {
-        fetch("/toys.json")
+        fetch(`http://localhost:5000/api/v1/toy/${id}`)
             .then((res) => res.json())
-            .then((data) => {
-                const targetedToy = data.find((toy) => toy.id === id);
-                setToy(targetedToy);
-            });
+            .then((data) => setToy(data));
     }, [id]);
 
     const handleFavorite = () => {

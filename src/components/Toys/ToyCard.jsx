@@ -3,7 +3,7 @@ import { Rating } from "@smastrom/react-rating";
 import { Link } from "react-router-dom";
 
 const ToysCard = ({ toy }) => {
-    const { id, toy_name, img, price, rating } = toy;
+    const { _id, toy_name, img, price, rating } = toy;
 
     return (
         <div>
@@ -33,7 +33,7 @@ const ToysCard = ({ toy }) => {
                                 readOnly
                             />
                             <Link
-                                to={`/toy/${id}`}
+                                to={`/toy/${_id}`}
                                 className="btn btn-error text-white"
                             >
                                 Show Details

@@ -9,7 +9,7 @@ const AllToys = () => {
     const location = useLocation();
 
     useEffect(() => {
-        fetch("/toys.json")
+        fetch("http://localhost:5000/api/v1/alltoys")
             .then((res) => res.json())
             .then((data) => setToys(data));
     }, []);
@@ -101,7 +101,7 @@ const AllToys = () => {
                     </thead>
                     {toys.slice(0, 10).map((toy, index) => {
                         return (
-                            <tbody key={toy.id}>
+                            <tbody key={toy._id}>
                                 <tr>
                                     <th>
                                         <label>{index + 1}</label>
@@ -145,7 +145,7 @@ const AllToys = () => {
                                     <th>
                                         <Link
                                             to={`${(location.pathname =
-                                                "/toy/")}${toy.id}`}
+                                                "/toy/")}${toy._id}`}
                                             className="btn btn-ghost "
                                         >
                                             View Details

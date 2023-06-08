@@ -8,7 +8,7 @@ const Toys = () => {
     const [tabIndex, setTabIndex] = useState(0);
 
     useEffect(() => {
-        fetch("/toys.json")
+        fetch("http://localhost:5000/api/v1/alltoys")
             .then((res) => res.json())
             .then((data) => setToys(data));
     }, []);
@@ -93,27 +93,27 @@ const Toys = () => {
 
                     <TabPanel className="mt-8 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5 justify-items-center">
                         {toys.map((toy) => (
-                            <ToysCard key={toy.id} toy={toy}></ToysCard>
+                            <ToysCard key={toy._id} toy={toy}></ToysCard>
                         ))}
                     </TabPanel>
                     <TabPanel className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5 justify-items-center">
                         {catagorigedToys.map((toy) => (
-                            <ToysCard key={toy.id} toy={toy}></ToysCard>
+                            <ToysCard key={toy._id} toy={toy}></ToysCard>
                         ))}
                     </TabPanel>
                     <TabPanel className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5 justify-items-center">
                         {catagorigedToys.map((toy) => (
-                            <ToysCard key={toy.id} toy={toy}></ToysCard>
+                            <ToysCard key={toy._id} toy={toy}></ToysCard>
                         ))}
                     </TabPanel>
                     <TabPanel className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5 justify-items-center">
                         {catagorigedToys.map((toy) => (
-                            <ToysCard key={toy.id} toy={toy}></ToysCard>
+                            <ToysCard key={toy._id} toy={toy}></ToysCard>
                         ))}
                     </TabPanel>
                     <TabPanel className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5 justify-items-center">
                         {catagorigedToys.map((toy) => (
-                            <ToysCard key={toy.id} toy={toy}></ToysCard>
+                            <ToysCard key={toy._id} toy={toy}></ToysCard>
                         ))}
                     </TabPanel>
                 </Tabs>
