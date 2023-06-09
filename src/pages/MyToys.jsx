@@ -3,18 +3,20 @@ import { useContext, useEffect, useState } from "react";
 import { Link } from "react-router-dom";
 import Swal from "sweetalert2";
 import { AuthContext } from "../Providers/AuthProvider";
+import EditToyModal from "../components/EditToyModal/EditToyModal";
 
 const MyToys = () => {
     const [toys, setToys] = useState([]);
     const { loading, user } = useContext(AuthContext);
+    const [modalData, setModalData] = useState(null);
 
     useEffect(() => {
         fetch(`http://localhost:5000/api/v1/my-toys?email=${user?.email}`)
             .then((res) => res.json())
             .then((data) => setToys(data));
-    }, [user, toys]);
+    }, [user]);
 
-    const handleDelete = (id) => {
+    const handleToyDelete = (id) => {
         Swal.fire({
             title: "Are you sure you want to delete this toy?",
             text: "You won't be able to revert this!",
@@ -53,7 +55,7 @@ const MyToys = () => {
     };
 
     return (
-        <div>
+        <>
             <div className="container mx-auto flex items-center justify-between pb-4">
                 <div>
                     Show{" "}
@@ -166,22 +168,25 @@ const MyToys = () => {
                                         ></Rating>
                                     </td>
                                     <th>
-                                        <Link className="">
-                                            <img
-                                                className="w-10"
-                                                src="https://img.icons8.com/?size=512&id=118958&format=png"
-                                                alt=""
-                                            />
-                                        </Link>
-                                    </th>
-                                    <th>
-                                        <Link
-                                            onClick={() =>
-                                                handleDelete(toy._id)
-                                            }
-                                            className=""
+                                        <label
+                                            onClick={() => setModalData(toy)}
+                                            htmlFor="my_modal_6"
+                                            className="cursor-pointer"
                                         >
                                             <img
+                                                src="https://img.icons8.com/?size=512&id=118958&format=png"
+                                                className="w-10"
+                                                alt=""
+                                            />
+                                        </label>
+                                    </th>
+
+                                    <th>
+                                        <Link className="">
+                                            <img
+                                                onClick={() =>
+                                                    handleToyDelete(toy._id)
+                                                }
                                                 className="w-10"
                                                 src="https://img.icons8.com/?size=512&id=119057&format=png"
                                                 alt=""
@@ -193,6 +198,7 @@ const MyToys = () => {
                         );
                     })}
                 </table>
+
                 {/* foot */}
                 <div>
                     <nav
@@ -264,8 +270,9 @@ const MyToys = () => {
                         </ul>
                     </nav>
                 </div>
+                <EditToyModal toy={modalData} />
             </div>
-        </div>
+        </>
     );
 };
 
