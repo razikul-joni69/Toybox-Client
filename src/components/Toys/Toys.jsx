@@ -31,9 +31,14 @@ const Toys = () => {
                     src="https://demo.ishithemes.com/opencart/OPC082/image/catalog/seperator.png"
                     alt=""
                 />
-                <h2 className="text-3xl md:text-5xl font-bold">
-                    Our Popular Toys
-                </h2>
+                <div className="text-center space-y-3 ">
+                    <h1 className="text-4xl md:text-5xl font-bold">
+                        AvailAble Toys
+                    </h1>
+                    <p className="text-xl text-gray-500">
+                        See All of your favourites toys here.
+                    </p>
+                </div>
             </div>
             <div>
                 <Tabs
@@ -48,8 +53,8 @@ const Toys = () => {
                         <Tab
                             className={`focus:outline-none ${
                                 tabIndex === 0
-                                    ? "btn btn-error"
-                                    : "btn btn-outline btn-error"
+                                    ? "btn btn-error text-white"
+                                    : "btn btn-outline btn-error "
                             }`}
                         >
                             All Dolls
@@ -57,7 +62,7 @@ const Toys = () => {
                         <Tab
                             className={`focus:outline-none ${
                                 tabIndex === 1
-                                    ? "btn btn-error"
+                                    ? "btn btn-error text-white"
                                     : "btn btn-outline btn-error"
                             }`}
                         >
@@ -66,7 +71,7 @@ const Toys = () => {
                         <Tab
                             className={`focus:outline-none ${
                                 tabIndex === 2
-                                    ? "btn btn-error"
+                                    ? "btn btn-error text-white"
                                     : "btn btn-outline btn-error"
                             }`}
                         >
@@ -75,7 +80,7 @@ const Toys = () => {
                         <Tab
                             className={`focus:outline-none ${
                                 tabIndex === 3
-                                    ? "btn btn-error"
+                                    ? "btn btn-error text-white"
                                     : "btn btn-outline btn-error"
                             }`}
                         >
@@ -84,7 +89,7 @@ const Toys = () => {
                         <Tab
                             className={`focus:outline-none ${
                                 tabIndex === 4
-                                    ? "btn btn-error"
+                                    ? "btn btn-error text-white"
                                     : "btn btn-outline btn-error"
                             }`}
                         >
