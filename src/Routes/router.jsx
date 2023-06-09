@@ -3,6 +3,7 @@ import Layout from "../Layout/Layout";
 import NotFound from "../components/NotFound/NotFound";
 import AddToy from "../pages/AddToy";
 import AllToys from "../pages/AllToys";
+import Blogs from "../pages/Blogs";
 import Home from "../pages/Home";
 import Login from "../pages/Login";
 import MyToys from "../pages/MyToys";
@@ -33,7 +34,11 @@ const router = createBrowserRouter([
             },
             {
                 path: "add-toy",
-                element: <AddToy />,
+                element: (
+                    <PrivateRoute>
+                        <AddToy />
+                    </PrivateRoute>
+                ),
             },
             {
                 path: "my-toys",
@@ -42,6 +47,10 @@ const router = createBrowserRouter([
                         <MyToys />
                     </PrivateRoute>
                 ),
+            },
+            {
+                path: "blogs",
+                element: <Blogs />,
             },
             {
                 path: "login",

@@ -48,12 +48,12 @@ const Toys = () => {
                 >
                     <TabList
                         onClick={handleSelect}
-                        className="flex justify-center  space-x-7 w-full"
+                        className="space-x-3 md:space-y-0 sm:space-y-3 md:flex justify-center  md:space-x-7 w-full"
                     >
                         <Tab
                             className={`focus:outline-none ${
                                 tabIndex === 0
-                                    ? "btn btn-error text-white"
+                                    ? "btn btn-error text-white "
                                     : "btn btn-outline btn-error "
                             }`}
                         >
@@ -84,7 +84,7 @@ const Toys = () => {
                                     : "btn btn-outline btn-error"
                             }`}
                         >
-                            Rag Dolls
+                            Animals Dolls
                         </Tab>
                         <Tab
                             className={`focus:outline-none ${
@@ -97,51 +97,51 @@ const Toys = () => {
                         </Tab>
                     </TabList>
 
-                    <TabPanel className="mt-8 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5 justify-items-center">
+                    <TabPanel className="mt-8 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-5 justify-items-center">
                         {toys?.slice(0, 20).map((toy) => (
                             <ToysCard key={toy._id} toy={toy}></ToysCard>
                         ))}
                     </TabPanel>
-                    <TabPanel className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5 justify-items-center">
+                    <TabPanel className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-5 justify-items-center">
                         {catagorigedToys.length > 0 ? (
                             catagorigedToys?.map((toy) => (
                                 <ToysCard key={toy._id} toy={toy}></ToysCard>
                             ))
                         ) : (
-                            <div className="col-span-3">
+                            <div className="col-span-4">
                                 <NoToysFound />
                             </div>
                         )}
                     </TabPanel>
-                    <TabPanel className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5 justify-items-center">
+                    <TabPanel className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-5 justify-items-center">
                         {catagorigedToys.length > 0 ? (
                             catagorigedToys?.map((toy) => (
                                 <ToysCard key={toy._id} toy={toy}></ToysCard>
                             ))
                         ) : (
-                            <div className="col-span-3">
+                            <div className="col-span-4">
                                 <NoToysFound />
                             </div>
                         )}
                     </TabPanel>
-                    <TabPanel className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5 justify-items-center">
+                    <TabPanel className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-5 justify-items-center">
                         {catagorigedToys.length > 0 ? (
                             catagorigedToys?.map((toy) => (
                                 <ToysCard key={toy._id} toy={toy}></ToysCard>
                             ))
                         ) : (
-                            <div className="col-span-3">
+                            <div className="col-span-4">
                                 <NoToysFound />
                             </div>
                         )}
                     </TabPanel>
-                    <TabPanel className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5 justify-items-center">
+                    <TabPanel className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-5 justify-items-center">
                         {catagorigedToys.length > 0 ? (
                             catagorigedToys?.map((toy) => (
                                 <ToysCard key={toy._id} toy={toy}></ToysCard>
                             ))
                         ) : (
-                            <div className="col-span-3">
+                            <div className="col-span-4">
                                 <NoToysFound />
                             </div>
                         )}

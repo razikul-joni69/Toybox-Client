@@ -4,8 +4,8 @@ import { Link, useLocation, useNavigate } from "react-router-dom";
 // import { AuthContext } from "../utils/Notification";
 // import Loading from "../shared/Loading";
 import { AuthContext } from "../Providers/AuthProvider";
-import { showErrorMessage, showSuccessMessage } from "../utils/Notification";
 import Loading from "../components/Loading/Loading";
+import { showErrorMessage, showSuccessMessage } from "../utils/Notification";
 
 const Login = () => {
     const location = useLocation();
@@ -88,31 +88,31 @@ const Login = () => {
     }
 
     return (
-        <div className="min-h-screen bg-gray-100 flex flex-col justify-center sm:py-12">
+        <div className="min-h-screen bg-gray-100 dark:bg-[#1d232a]  flex flex-col justify-center sm:py-12">
             <div className="md:pt-0  p-10 xs:p-0 mx-auto md:w-full md:max-w-md">
-                <h1 className="font-bold text-center text-2xl mb-5">
+                <h1 className="font-bold text-center text-3xl dark:text-white mb-5">
                     Please Login
                 </h1>
-                <div className="bg-white shadow w-full rounded-lg divide-gray-200">
+                <div className="bg-white dark:bg-[#2B3A55]   shadow w-full rounded-lg divide-gray-200">
                     <form onSubmit={handleUserLogin} className="px-5 pt-7">
-                        <label className="font-semibold text-sm text-gray-600 pb-1 block">
+                        <label className="font-semibold text-sm text-gray-600 dark:text-white pb-1 block">
                             E-mail
                         </label>
                         <input
                             type="email"
                             name="email"
                             placeholder="Please Enter Your Email"
-                            className="border rounded-lg px-3 py-2 mt-1 mb-5 text-sm w-full"
+                            className="dark:text-white dark:bg-slate-700 border rounded-lg px-3 py-2 mt-1 mb-5 text-sm w-full"
                             required
                         />
-                        <label className="font-semibold text-sm text-gray-600 pb-1 block">
+                        <label className="font-semibold text-sm text-gray-600 dark:text-white pb-1 block">
                             Password
                         </label>
                         <input
                             type="password"
                             name="password"
                             placeholder="Please Enter Your Password"
-                            className="border rounded-lg px-3 py-2 mt-1 mb-5 text-sm w-full"
+                            className="dark:text-white dark:bg-slate-700 border rounded-lg px-3 py-2 mt-1 mb-5 text-sm w-full"
                             required
                         />
                         {error && (
@@ -142,7 +142,7 @@ const Login = () => {
                         </button>
                     </form>
                     <div className="m-0 p-0 ">
-                        <p className="mt-6 text-sm text-center text-gray-400">
+                        <p className="mt-6 text-sm text-center text-gray-400 dark:text-white">
                             Don&#x27;t have an account yet?{" "}
                             <Link
                                 to="/register"
@@ -165,21 +165,21 @@ const Login = () => {
                             <button
                                 onClick={handleFacebookLogin}
                                 type="button"
-                                className="transition duration-200 border border-gray-200 text-gray-500 w-full py-2.5 rounded-lg text-sm shadow-sm hover:shadow-md font-normal text-center inline-block"
+                                className="transition duration-200 border border-gray-200 dark:text-white text-gray-500 w-full py-2.5 rounded-lg text-sm shadow-sm hover:shadow-md font-normal text-center inline-block"
                             >
                                 Facebook
                             </button>
                             <button
                                 onClick={handleGoogleLogin}
                                 type="button"
-                                className="transition duration-200 border border-gray-200 text-gray-500 w-full py-2.5 rounded-lg text-sm shadow-sm hover:shadow-md font-normal text-center inline-block"
+                                className="transition duration-200 border border-gray-200 dark:text-white text-gray-500 w-full py-2.5 rounded-lg text-sm shadow-sm hover:shadow-md font-normal text-center inline-block"
                             >
                                 Google
                             </button>
                             <button
                                 onClick={handleGithubLogin}
                                 type="button"
-                                className="transition duration-200 border border-gray-200 text-gray-500 w-full py-2.5 rounded-lg text-sm shadow-sm hover:shadow-md font-normal text-center inline-block"
+                                className="transition duration-200 border border-gray-200 dark:text-white text-gray-500 w-full py-2.5 rounded-lg text-sm shadow-sm hover:shadow-md font-normal text-center inline-block"
                             >
                                 Github
                             </button>

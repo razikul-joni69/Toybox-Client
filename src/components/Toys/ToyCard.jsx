@@ -4,13 +4,11 @@ import { Link } from "react-router-dom";
 import NoToysFound from "../NoToysFound/NoToysFound";
 
 const ToysCard = ({ toy }) => {
-    const { _id, toy_name, img, price, rating } = toy;
+    const { _id, toy_name, toy_img, price, rating } = toy;
     console.log(toy);
 
     return (
         <div>
-            {/* {toy=="" && <NoToysFound/>} */}
-
             {toy ? (
                 <div
                     data-aos="fade-up"
@@ -20,7 +18,7 @@ const ToysCard = ({ toy }) => {
                     <div>
                         <img
                             className=" rounded-t-lg h-[350px] w-full"
-                            src={img}
+                            src={toy_img}
                             alt="product image"
                         />
                     </div>

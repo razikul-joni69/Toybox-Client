@@ -5,10 +5,10 @@ import rightBanner from "../../assets/images/banner/home-banner-right.webp";
 
 const BannarSection = () => {
     return (
-        <div className="carousel w-full h-screen">
+        <div className="carousel w-full h-[500px] md:h-screen">
             <div id="slide1" className="carousel-item relative w-full">
                 <img src={rightBanner} className="w-full" />
-                <div className="absolute flex justify-between transform -translate-y-1/2 left-5 right-5 top-1/2">
+                <div className="hidden absolute md:flex justify-between transform -translate-y-1/2 left-5 right-5 top-1/2">
                     <a href="#slide4" className="btn btn-circle">
                         ❮
                     </a>
@@ -16,7 +16,7 @@ const BannarSection = () => {
                         ❯
                     </a>
                 </div>
-                <div className="absolute text-gray-600 space-y-3 w-2/5 left-20 transform -translate-y-1/2 top-1/2">
+                <div className="absolute text-gray-600 space-y-3 w-full md:w-2/5 md:left-20 transform -translate-y-1/2 top-1/2">
                     <h1 className="text-5xl md:text-7xl">Lets Play All Day</h1>
                     <p>
                         Lets give your child his/her favourite toy. Lorem ipsum

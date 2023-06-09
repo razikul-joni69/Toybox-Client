@@ -1,4 +1,4 @@
-import { useContext, useState } from "react";
+import { useContext } from "react";
 import { Link, NavLink } from "react-router-dom";
 import { AuthContext } from "../../Providers/AuthProvider";
 import logo from "../../assets/images/logo/logo.png";
@@ -6,11 +6,6 @@ import Loading from "../Loading/Loading";
 
 const Navbar = () => {
     const { user, loading, logOut } = useContext(AuthContext);
-    const [darkMode, setDarkMode] = useState(false);
-
-    const handleDarkMode = () => {
-        setDarkMode(!darkMode);
-    };
 
     const handleLogout = () => {
         logOut();
@@ -45,25 +40,43 @@ const Navbar = () => {
                             className="menu menu-sm dropdown-content mt-3 p-2 shadow bg-base-100 rounded-box w-52"
                         >
                             <li>
-                                <a>Home</a>
-                            </li>
-
-                            <li>
-                                <a>About</a>
-                            </li>
-                            <li>
-                                <a>Services</a>
-                            </li>
-
-                            <li>
-                                <a>Blog</a>
+                                <NavLink
+                                    className="focus:text-white focus:bg-black"
+                                    to="/"
+                                >
+                                    Home
+                                </NavLink>
                             </li>
                             <li>
-                                <a>Contact</a>
+                                <NavLink
+                                    className="focus:text-white focus:bg-black"
+                                    to="/alltoys"
+                                >
+                                    All Toys
+                                </NavLink>
+                            </li>
+                            <li>
+                                <NavLink
+                                    className="focus:text-white focus:bg-black"
+                                    to="/add-toy"
+                                >
+                                    Add Toy
+                                </NavLink>
+                            </li>
+                            <li>
+                                <NavLink
+                                    className="focus:text-white focus:bg-black"
+                                    to="/my-toys"
+                                >
+                                    My Toys
+                                </NavLink>
+                            </li>
+                            <li>
+                                <NavLink to="/blogs">Blogs</NavLink>
                             </li>
                         </ul>
                     </div>
-                    <Link className="">
+                    <Link to="/">
                         <img className="h-16" src={logo} alt="" />
                     </Link>
                 </div>
@@ -101,9 +114,8 @@ const Navbar = () => {
                                 My Toys
                             </NavLink>
                         </li>
-
                         <li>
-                            <a>Blog</a>
+                            <NavLink to="/blogs">Blogs</NavLink>
                         </li>
                     </ul>
                 </div>
@@ -160,7 +172,17 @@ const Navbar = () => {
                                         className="btn btn-ghost btn-circle avatar"
                                     >
                                         <div className="w-10 rounded-full ring-2 ring-error">
-                                            <img src={user?.photoURL} />
+                                            {user?.photoURL ? (
+                                                <img
+                                                    src={user?.photoURL}
+                                                    alt="user photo"
+                                                />
+                                            ) : (
+                                                <img
+                                                    src="https://daisyui.com/images/stock/photo-1534528741775-53994a69daeb.jpg"
+                                                    alt="user photo"
+                                                />
+                                            )}
                                         </div>
                                     </label>
                                     <ul
@@ -169,6 +191,9 @@ const Navbar = () => {
                                     >
                                         <li>
                                             <a className="justify-between">
+                                                <span className="text-error">
+                                                    {user?.displayName}
+                                                </span>{" "}
                                                 Profile
                                             </a>
                                         </li>
@@ -184,23 +209,6 @@ const Navbar = () => {
                         </div>
                     ) : (
                         <div className="space-x-2">
-                            <button className="btn btn-ghost btn-circle">
-                                <svg
-                                    xmlns="http://www.w3.org/2000/svg"
-                                    className="h-5 w-5"
-                                    fill="none"
-                                    viewBox="0 0 24 24"
-                                    stroke="currentColor"
-                                >
-                                    <path
-                                        strokeLinecap="round"
-                                        strokeLinejoin="round"
-                                        strokeWidth="2"
-                                        d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"
-                                    />
-                                </svg>
-                            </button>
-
                             <Link
                                 to="login"
                                 className="btn btn-outline btn-error "

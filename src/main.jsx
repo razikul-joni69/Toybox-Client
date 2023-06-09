@@ -14,7 +14,7 @@ AOS.init();
 
 ReactDOM.createRoot(document.getElementById("root")).render(
     <React.StrictMode>
-        <AuthProvider>
+        <AuthProvider >
             <RouterProvider router={router}></RouterProvider>
         </AuthProvider>
     </React.StrictMode>

@@ -32,7 +32,7 @@ const Offers = () => {
             </div>
             <div className=" container mx-auto  grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 justify-items-center">
                 <img
-                    data-aos="fade-right"
+                    data-aos="fade-left"
                     data-aos-duration="2000"
                     className="rounded-md cursor-pointer w-full"
                     src={img1}
@@ -53,7 +53,7 @@ const Offers = () => {
                     alt="Offer Image"
                 />
                 <img
-                    data-aos="fade-left"
+                    data-aos="fade-right"
                     data-aos-duration="2000"
                     className="rounded-md cursor-pointer w-full"
                     src={img4}

@@ -91,8 +91,8 @@ const AllToys = () => {
                         </div>
                     </div>
                     <div className="overflow-x-auto">
-                        <table className="table">
-                            <thead className="text-xs text-gray-700 uppercase bg-gray-50 dark:bg-gray-700 dark:text-gray-400">
+                        <table className="table-sm md:table-md lg:table table-zebra">
+                            <thead className="text-xs md:text-md text-gray-700 uppercase bg-gray-50 dark:bg-gray-700 dark:text-gray-400">
                                 <tr>
                                     <th data-priority="1">Serial</th>
                                     <th data-priority="2">
@@ -121,7 +121,9 @@ const AllToys = () => {
                                                     <div className="avatar">
                                                         <div className="mask mask-squircle w-12 h-12">
                                                             <img
-                                                                src={toy.img}
+                                                                src={
+                                                                    toy.toy_img
+                                                                }
                                                                 alt="Avatar Tailwind CSS Component"
                                                             />
                                                         </div>
