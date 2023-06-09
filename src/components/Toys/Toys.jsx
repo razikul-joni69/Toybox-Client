@@ -1,5 +1,6 @@
 import { useEffect, useState } from "react";
 import { Tab, TabList, TabPanel, Tabs } from "react-tabs";
+import NoToysFound from "../NoToysFound/NoToysFound";
 import ToysCard from "./ToyCard";
 
 const Toys = () => {
@@ -92,29 +93,53 @@ const Toys = () => {
                     </TabList>
 
                     <TabPanel className="mt-8 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5 justify-items-center">
-                        {toys.map((toy) => (
+                        {toys?.slice(0, 20).map((toy) => (
                             <ToysCard key={toy._id} toy={toy}></ToysCard>
                         ))}
                     </TabPanel>
                     <TabPanel className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5 justify-items-center">
-                        {catagorigedToys.map((toy) => (
-                            <ToysCard key={toy._id} toy={toy}></ToysCard>
-                        ))}
+                        {catagorigedToys.length > 0 ? (
+                            catagorigedToys?.map((toy) => (
+                                <ToysCard key={toy._id} toy={toy}></ToysCard>
+                            ))
+                        ) : (
+                            <div className="col-span-3">
+                                <NoToysFound />
+                            </div>
+                        )}
                     </TabPanel>
                     <TabPanel className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5 justify-items-center">
-                        {catagorigedToys.map((toy) => (
-                            <ToysCard key={toy._id} toy={toy}></ToysCard>
-                        ))}
+                        {catagorigedToys.length > 0 ? (
+                            catagorigedToys?.map((toy) => (
+                                <ToysCard key={toy._id} toy={toy}></ToysCard>
+                            ))
+                        ) : (
+                            <div className="col-span-3">
+                                <NoToysFound />
+                            </div>
+                        )}
                     </TabPanel>
                     <TabPanel className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5 justify-items-center">
-                        {catagorigedToys.map((toy) => (
-                            <ToysCard key={toy._id} toy={toy}></ToysCard>
-                        ))}
+                        {catagorigedToys.length > 0 ? (
+                            catagorigedToys?.map((toy) => (
+                                <ToysCard key={toy._id} toy={toy}></ToysCard>
+                            ))
+                        ) : (
+                            <div className="col-span-3">
+                                <NoToysFound />
+                            </div>
+                        )}
                     </TabPanel>
                     <TabPanel className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5 justify-items-center">
-                        {catagorigedToys.map((toy) => (
-                            <ToysCard key={toy._id} toy={toy}></ToysCard>
-                        ))}
+                        {catagorigedToys.length > 0 ? (
+                            catagorigedToys?.map((toy) => (
+                                <ToysCard key={toy._id} toy={toy}></ToysCard>
+                            ))
+                        ) : (
+                            <div className="col-span-3">
+                                <NoToysFound />
+                            </div>
+                        )}
                     </TabPanel>
                 </Tabs>
             </div>

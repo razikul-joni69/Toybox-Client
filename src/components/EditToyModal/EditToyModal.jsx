@@ -1,12 +1,11 @@
 /* eslint-disable react/prop-types */
-import { useContext, useState } from "react";
+import { useContext } from "react";
 import { AuthContext } from "../../Providers/AuthProvider";
 import { showErrorMessage, showSuccessMessage } from "../../utils/Notification";
 import Loading from "../Loading/Loading";
 
-const EditToyModal = ({ toy }) => {
+const EditToyModal = ({ toy, showModal, setShowModal }) => {
     const { loading, user } = useContext(AuthContext);
-    const [closeModal, setCloseModal] = useState(true);
 
     if (loading) {
         return <Loading />;
@@ -46,7 +45,7 @@ const EditToyModal = ({ toy }) => {
             .then((res) => {
                 console.log(res);
                 if (res.ok) {
-                    setCloseModal(false);
+                    setShowModal(false);
                     showSuccessMessage("🧸 Toy Updated Successfully");
                 }
             })
@@ -56,7 +55,7 @@ const EditToyModal = ({ toy }) => {
     };
     return (
         <>
-            {closeModal ? (
+            {showModal ? (
                 <>
                     <input
                         type="checkbox"
