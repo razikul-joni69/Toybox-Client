@@ -17,7 +17,12 @@ const Offers = () => {
                     Offer will ended...
                 </p>
             </div>
-            <div className="flex justify-center text-4xl md:text-6xl text-error my-8">
+            <div
+                data-aos="fade-down"
+                data-aos-easing="linear"
+                data-aos-duration="2000"
+                className="flex justify-center text-4xl md:text-6xl text-error my-8"
+            >
                 <Countdown
                     className="bg-white p-5 shadow-lg rounded-lg"
                     date={Date.now() + 2560100000}
@@ -27,21 +32,29 @@ const Offers = () => {
             </div>
             <div className=" container mx-auto  grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 justify-items-center">
                 <img
+                    data-aos="fade-right"
+                    data-aos-duration="2000"
                     className="rounded-md cursor-pointer w-full"
                     src={img1}
                     alt="Offer Image"
                 />
                 <img
+                    data-aos="zoom-in"
+                    data-aos-duration="2000"
                     className="rounded-md cursor-pointer w-full"
                     src={img2}
                     alt="Offer Image"
                 />
                 <img
+                    data-aos="flip-down"
+                    data-aos-duration="2000"
                     className="rounded-md cursor-pointer w-full"
                     src={img3}
                     alt="Offer Image"
                 />
                 <img
+                    data-aos="fade-left"
+                    data-aos-duration="2000"
                     className="rounded-md cursor-pointer w-full"
                     src={img4}
                     alt="Offer Image"
