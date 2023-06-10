@@ -36,7 +36,7 @@ const AddToy = () => {
             available_quantity: parseFloat(available_quantity),
         };
 
-        fetch("http://localhost:5000/api/v1/add-toy", {
+        fetch("https://toybox-server-gamma.vercel.app/api/v1/add-toy", {
             method: "POST",
             body: JSON.stringify(newToy),
             headers: {

@@ -17,7 +17,7 @@ const MyToys = () => {
 
     useEffect(() => {
         let unsubscribe = fetch(
-            `http://localhost:5000/api/v1/my-toys?email=${user?.email}`
+            `https://toybox-server-gamma.vercel.app/api/v1/my-toys?email=${user?.email}`
         )
             .then((res) => res.json())
             .then((data) => setToys(data));
@@ -29,7 +29,7 @@ const MyToys = () => {
 
     const handleSortByPrice = (e) => {
         fetch(
-            `http://localhost:5000/api/v1/my-sorted-toys?email=${user?.email}&&sortingMethod=${e.target.value}`
+            `https://toybox-server-gamma.vercel.app/api/v1/my-sorted-toys?email=${user?.email}&&sortingMethod=${e.target.value}`
         )
             .then((res) => res.json())
             .then((data) => setToys(data));
@@ -46,12 +46,15 @@ const MyToys = () => {
             confirmButtonText: "Yes, delete it!",
         }).then((result) => {
             if (result.isConfirmed) {
-                fetch(`http://localhost:5000/api/v1/toys/delete-toy/${id}`, {
-                    method: "DELETE",
-                    headers: {
-                        "Content-Type": "application/json",
-                    },
-                })
+                fetch(
+                    `https://toybox-server-gamma.vercel.app/api/v1/toys/delete-toy/${id}`,
+                    {
+                        method: "DELETE",
+                        headers: {
+                            "Content-Type": "application/json",
+                        },
+                    }
+                )
                     .then((res) => {
                         console.log(res);
                         if (res.ok) {

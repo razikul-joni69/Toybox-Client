@@ -35,13 +35,16 @@ const EditToyModal = ({ toy, showModal, setShowModal }) => {
             available_quantity: parseFloat(available_quantity),
         };
 
-        fetch(`http://localhost:5000/api/v1/update-toy/${toy._id}`, {
-            method: "PUT",
-            body: JSON.stringify(updatedToy),
-            headers: {
-                "Content-Type": "application/json",
-            },
-        })
+        fetch(
+            `https://toybox-server-gamma.vercel.app/api/v1/update-toy/${toy._id}`,
+            {
+                method: "PUT",
+                body: JSON.stringify(updatedToy),
+                headers: {
+                    "Content-Type": "application/json",
+                },
+            }
+        )
             .then((res) => {
                 console.log(res);
                 if (res.ok) {

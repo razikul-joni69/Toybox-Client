@@ -12,7 +12,7 @@ const AllToys = () => {
     document.title = "TOYBOX | All Toys";
 
     useEffect(() => {
-        fetch("http://localhost:5000/api/v1/alltoys")
+        fetch("https://toybox-server-gamma.vercel.app/api/v1/alltoys")
             .then((res) => res.json())
             .then((data) => setToys(data));
     }, []);
@@ -37,7 +37,9 @@ const AllToys = () => {
     // };
 
     const handleToyLimit = (e) => {
-        fetch(`http://localhost:5000/api/v1/alltoys?limit=${e.target.value}`)
+        fetch(
+            `https://toybox-server-gamma.vercel.app/api/v1/alltoys?limit=${e.target.value}`
+        )
             .then((res) => res.json())
             .then((data) => setToys(data));
     };
