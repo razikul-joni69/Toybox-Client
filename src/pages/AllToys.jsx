@@ -12,7 +12,9 @@ const AllToys = () => {
     document.title = "TOYBOX | All Toys";
 
     useEffect(() => {
-        fetch("https://toybox-server-gamma.vercel.app/api/v1/alltoys")
+        fetch(
+            `https://toybox-server-gamma.vercel.app/api/v1/alltoys?limit=10`
+        )
             .then((res) => res.json())
             .then((data) => setToys(data));
     }, []);
