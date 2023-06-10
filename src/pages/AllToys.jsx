@@ -17,7 +17,6 @@ const AllToys = () => {
             .then((data) => setToys(data));
     }, []);
 
-    console.log(toys);
 
     // FIXIT: implement search
     // const handleSearch = (e) => {

@@ -42,6 +42,9 @@ const EditToyModal = ({ toy, showModal, setShowModal }) => {
                 body: JSON.stringify(updatedToy),
                 headers: {
                     "Content-Type": "application/json",
+                    "Access-Control-Allow-Origin": "*",
+                    "Access-Control-Allow-Methods":
+                        "GET, POST, PUT, PATCH, DELETE, OPTION",
                 },
             }
         )

@@ -56,7 +56,6 @@ const MyToys = () => {
                     }
                 )
                     .then((res) => {
-                        console.log(res);
                         if (res.ok) {
                             let updatedToys = toys.filter(
                                 (toy) => toy._id !== id
