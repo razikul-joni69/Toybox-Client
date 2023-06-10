@@ -7,6 +7,9 @@ import { showErrorMessage, showSuccessMessage } from "../utils/Notification";
 const Register = () => {
     const location = useLocation();
     const navigate = useNavigate();
+    
+    document.title = "TOYBOX | Register";
+
     const {
         continueWithGoogle,
         continueWithGithub,
@@ -182,7 +185,7 @@ const Register = () => {
                     <div className="text-center mt-2">
                         <div className="inline-flex items-center justify-center w-full">
                             <hr className="w-full h-px  bg-gray-200 border-1 dark:bg-gray-700" />
-                            <span className="absolute px-3 font-medium dark:text-white text-gray-900 -translate-x-1/2 bg-white left-1/2 dark:text-white dark:bg-gray-900">
+                            <span className="absolute px-3 font-medium dark:text-white text-gray-900 -translate-x-1/2 bg-white left-1/2  dark:bg-gray-900">
                                 OR Continue With
                             </span>
                         </div>

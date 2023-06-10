@@ -1,4 +1,5 @@
 const Blogs = () => {
+    document.title = "TOYBOX | Blogs";
     return (
         <div className="container mx-auto space-y-5">
             <div>

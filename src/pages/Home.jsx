@@ -5,6 +5,7 @@ import Offers from "../components/Offers/Offers";
 import Toys from "../components/Toys/Toys";
 
 const Home = () => {
+    document.title = "TOYBOX | Home";
     return (
         <div>
             <BannarSection />

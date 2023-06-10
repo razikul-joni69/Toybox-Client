@@ -5,9 +5,11 @@ import NoToysFound from "../components/NoToysFound/NoToysFound";
 
 const AllToys = () => {
     const [toys, setToys] = useState([]);
-    const [searchInput, setSearchInput] = useState("");
-    const [searchedToy, setSearchedToy] = useState([]);
+    // const [searchInput, setSearchInput] = useState("");
+    // const [searchedToy, setSearchedToy] = useState([]);
     const location = useLocation();
+
+    document.title = "TOYBOX | All Toys";
 
     useEffect(() => {
         fetch("http://localhost:5000/api/v1/alltoys")
@@ -18,20 +20,26 @@ const AllToys = () => {
     console.log(toys);
 
     // FIXIT: implement search
-    const handleSearch = (e) => {
-        e.preventDefault();
-        setSearchInput(e.target.value);
-        console.log(searchInput);
+    // const handleSearch = (e) => {
+    //     e.preventDefault();
+    //     setSearchInput(e.target.value);
+    //     console.log(searchInput);
 
-        if (searchInput.length > 0) {
-            const t = toys.filter((toy) => {
-                if (toy.toy_name.search(searchInput)) {
-                    return toy;
-                }
-            });
-            // searchedToy(t)
-            console.log(t);
-        }
+    //     if (searchInput.length > 0) {
+    //         const t = toys.filter((toy) => {
+    //             if (toy.toy_name.search(searchInput)) {
+    //                 return toy;
+    //             }
+    //         });
+    //         // searchedToy(t)
+    //         console.log(t);
+    //     }
+    // };
+
+    const handleToyLimit = (e) => {
+        fetch(`http://localhost:5000/api/v1/alltoys?limit=${e.target.value}`)
+            .then((res) => res.json())
+            .then((data) => setToys(data));
     };
     return (
         <div>
@@ -39,55 +47,31 @@ const AllToys = () => {
                 <NoToysFound />
             ) : (
                 <div>
-                    <div className="container mx-auto flex items-center justify-between pb-4">
-                        <div>
-                            Show{" "}
-                            <select
-                                className="inline-flex items-center text-gray-500 bg-white border border-gray-300 focus:outline-none hover:bg-gray-100 focus:ring-1 focus:ring-gray-200 font-medium rounded-lg text-sm px-3 py-1.5 dark:bg-gray-800 dark:text-white dark:border-gray-600 dark:hover:bg-gray-700 dark:hover:border-gray-600 dark:focus:ring-gray-700"
-                                name="cars"
-                                id="cars"
-                            >
-                                <option className="text-xl " value="saab">
-                                    10
-                                </option>
-                                <option className="text-xl " value="opel">
-                                    15
-                                </option>
-                                <option className="text-xl " value="opel">
-                                    20
-                                </option>
-                                <option className="text-xl " value="opel">
-                                    25
-                                </option>
-                            </select>
-                            Enteties
-                        </div>
-                        <label htmlFor="table-search" className="sr-only">
-                            Search
-                        </label>
+                    <div className="container mx-auto flex justify-center md:justify-between items-center sm:my-5 justify-items-center lg:justify-between pb-4">
+                        <select
+                            onChange={handleToyLimit}
+                            defaultValue={"selected"}
+                            className="select select-primary w-full max-w-xs "
+                        >
+                            <option disabled hidden value="selected">
+                                Select How Many Toys Want To Show
+                            </option>
+                            <option value="10">10</option>
+                            <option value="20">20</option>
+                            <option value="25">25</option>
+                            <option value="30">30</option>
+                        </select>
+
                         <div className="relative">
-                            <div className="absolute inset-y-0 left-0 flex items-center pl-3 pointer-events-none">
-                                <svg
-                                    className="w-5 h-5 text-gray-500 dark:text-gray-400"
-                                    aria-hidden="true"
-                                    fill="currentColor"
-                                    viewBox="0 0 20 20"
-                                    xmlns="http://www.w3.org/2000/svg"
-                                >
-                                    <path
-                                        fillRule="evenodd"
-                                        d="M8 4a4 4 0 100 8 4 4 0 000-8zM2 8a6 6 0 1110.89 3.476l4.817 4.817a1 1 0 01-1.414 1.414l-4.816-4.816A6 6 0 012 8z"
-                                        clipRule="evenodd"
-                                    ></path>
-                                </svg>
-                            </div>
                             <input
-                                onChange={handleSearch}
                                 type="text"
-                                id="table-search"
-                                className="block p-2 pl-10 text-sm text-gray-900 border border-gray-300 rounded-lg w-80 bg-gray-50 focus:ring-blue-500 focus:border-blue-500 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
-                                placeholder="Search for items"
+                                placeholder="Search Here..."
+                                className="input input-bordered w-full  pr-40"
                             />
+
+                            <button className="btn btn-primary absolute top-0 right-0 rounded-l-none">
+                                Search
+                            </button>
                         </div>
                     </div>
                     <div className="overflow-x-auto">
@@ -109,7 +93,7 @@ const AllToys = () => {
                                     <th data-priority="7">View Details</th>
                                 </tr>
                             </thead>
-                            {toys.slice(0, 10).map((toy, index) => {
+                            {toys.map((toy, index) => {
                                 return (
                                     <tbody key={toy._id}>
                                         <tr>

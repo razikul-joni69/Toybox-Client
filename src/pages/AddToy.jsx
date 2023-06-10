@@ -6,6 +6,8 @@ import { showErrorMessage, showSuccessMessage } from "../utils/Notification";
 const AddToy = () => {
     const { loading, user } = useContext(AuthContext);
 
+    document.title = "TOYBOX | Add Toys";
+
     if (loading) {
         return <Loading />;
     }

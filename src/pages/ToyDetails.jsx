@@ -9,6 +9,8 @@ const ToyDetails = () => {
     const location = useLocation();
     const navigate = useNavigate();
 
+    document.title = "TOYBOX | Toy Details";
+
     useEffect(() => {
         fetch(`http://localhost:5000/api/v1/toy/${id}`)
             .then((res) => res.json())
@@ -31,7 +33,7 @@ const ToyDetails = () => {
                     <img
                         alt="ecommerce"
                         className="lg:w-1/2 w-full max-h-[800px] object-cover object-center rounded border border-gray-200"
-                        src={toy.img}
+                        src={toy.toy_img}
                     />
                     <div className="lg:w-1/2 w-full lg:pl-10 lg:py-6 mt-6 lg:mt-0">
                         <h2 className="text-sm title-font text-gray-500 tracking-widest">

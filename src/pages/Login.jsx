@@ -10,6 +10,9 @@ import { showErrorMessage, showSuccessMessage } from "../utils/Notification";
 const Login = () => {
     const location = useLocation();
     const navigate = useNavigate();
+
+    document.title = "TOYBOX | Login";
+
     const {
         continueWithGoogle,
         continueWithGithub,
@@ -34,7 +37,7 @@ const Login = () => {
             emailPasswordUserLogin(email, password)
                 .then(() => {
                     setError("");
-                    showSuccessMessage("👍 Email SignIn Successfull!");
+                    showSuccessMessage("👍 Email SignIn Successful!");
                     navigate(from, { replace: true });
                 })
                 .catch((err) => {
@@ -48,7 +51,7 @@ const Login = () => {
         continueWithGoogle()
             .then(() => {
                 setError("");
-                showSuccessMessage("👍 Google SignIn Successfull!");
+                showSuccessMessage("👍 Google SignIn Successful!");
                 navigate(from, { replace: true });
             })
             .catch((err) => {
