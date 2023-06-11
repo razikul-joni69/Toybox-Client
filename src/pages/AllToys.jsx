@@ -1,82 +1,93 @@
 import { Rating } from "@smastrom/react-rating";
-import { useEffect, useState } from "react";
-import { Link, useLocation } from "react-router-dom";
+import { useContext, useEffect, useState } from "react";
+import { Link, useLocation, useNavigate } from "react-router-dom";
+import Swal from "sweetalert2";
+import { AuthContext } from "../Providers/AuthProvider";
+import Loading from "../components/Loading/Loading";
 import NoToysFound from "../components/NoToysFound/NoToysFound";
 
 const AllToys = () => {
     const [toys, setToys] = useState([]);
-    // const [searchInput, setSearchInput] = useState("");
-    // const [searchedToy, setSearchedToy] = useState([]);
+    const { user, loading } = useContext(AuthContext);
+    const navigate = useNavigate();
     const location = useLocation();
+    const [search, setSearch] = useState("");
 
     document.title = "TOYBOX | All Toys";
 
     useEffect(() => {
         fetch(
-            `https://toybox-server-gamma.vercel.app/api/v1/alltoys?limit=10`
+            `https://toybox-server-gamma.vercel.app/api/v1/alltoys?search=${search}&limit=20`
         )
             .then((res) => res.json())
             .then((data) => setToys(data));
-    }, []);
-
-
-    // FIXIT: implement search
-    // const handleSearch = (e) => {
-    //     e.preventDefault();
-    //     setSearchInput(e.target.value);
-    //     console.log(searchInput);
-
-    //     if (searchInput.length > 0) {
-    //         const t = toys.filter((toy) => {
-    //             if (toy.toy_name.search(searchInput)) {
-    //                 return toy;
-    //             }
-    //         });
-    //         // searchedToy(t)
-    //         console.log(t);
-    //     }
-    // };
+    }, [search]);
 
     const handleToyLimit = (e) => {
         fetch(
-            `https://toybox-server-gamma.vercel.app/api/v1/alltoys?limit=${e.target.value}`
+            `https://toybox-server-gamma.vercel.app/api/v1/alltoys?search=&limit=${e.target.value}`
         )
             .then((res) => res.json())
             .then((data) => setToys(data));
     };
+
+    const handleToyDetails = (id) => {
+        if (!user) {
+            Swal.fire({
+                title: "Are you sure You want to Login?",
+                text: "🧸 You Have to Login First To View the toy details!",
+                icon: "warning",
+                showCancelButton: true,
+                confirmButtonColor: "#3085d6",
+                cancelButtonColor: "#d33",
+                confirmButtonText: "Yes, Goto Login Page!",
+            }).then((result) => {
+                if (result.isConfirmed) {
+                    navigate(`${(location.pathname = "/toy/")}${id}`);
+                }
+            });
+        } else {
+            navigate(`/toy/${id}`);
+        }
+    };
+
+    const handleSearchChange = (e) => {
+        setSearch(e.target.value);
+    };
+
+    if (loading) {
+        return <Loading />;
+    }
     return (
         <div>
+            <div className="container space-y-3 mx-auto flex flex-wrap justify-center md:justify-between items-end my-5">
+                <select
+                    onChange={handleToyLimit}
+                    defaultValue={"selected"}
+                    className="select select-primary w-full max-w-xs "
+                >
+                    <option disabled hidden value="selected">
+                        Select How Many Toys Want To Show
+                    </option>
+                    <option value="10">Display 10 Toys</option>
+                    <option value="20">Display 20 Toys</option>
+                    <option value="25">Display 25 Toys</option>
+                    <option value="30">Display 30 Toys</option>
+                    <option value="40">Display 40 Toys</option>
+                    <option value="50">Display 50 Toys</option>
+                </select>
+
+                <input
+                    onChange={handleSearchChange}
+                    type="text"
+                    placeholder="🔍 Search Toys Here..."
+                    className="input input-primary w-full max-w-xs"
+                />
+            </div>
             {toys.length <= 0 ? (
                 <NoToysFound />
             ) : (
                 <div>
-                    <div className="container mx-auto flex justify-center md:justify-between items-center sm:my-5 justify-items-center lg:justify-between pb-4">
-                        <select
-                            onChange={handleToyLimit}
-                            defaultValue={"selected"}
-                            className="select select-primary w-full max-w-xs "
-                        >
-                            <option disabled hidden value="selected">
-                                Select How Many Toys Want To Show
-                            </option>
-                            <option value="10">10</option>
-                            <option value="20">20</option>
-                            <option value="25">25</option>
-                            <option value="30">30</option>
-                        </select>
-
-                        <div className="relative">
-                            <input
-                                type="text"
-                                placeholder="Search Here..."
-                                className="input input-bordered w-full  pr-40"
-                            />
-
-                            <button className="btn btn-primary absolute top-0 right-0 rounded-l-none">
-                                Search
-                            </button>
-                        </div>
-                    </div>
                     <div className="overflow-x-auto">
                         <table className="table-sm md:table-md lg:table table-zebra">
                             <thead className="text-xs md:text-md text-gray-700 uppercase bg-gray-50 dark:bg-gray-700 dark:text-gray-400">
@@ -143,8 +154,11 @@ const AllToys = () => {
                                             </td>
                                             <th>
                                                 <Link
-                                                    to={`${(location.pathname =
-                                                        "/toy/")}${toy._id}`}
+                                                    onClick={() =>
+                                                        handleToyDetails(
+                                                            toy._id
+                                                        )
+                                                    }
                                                     className="btn btn-ghost "
                                                 >
                                                     View Details
@@ -155,79 +169,6 @@ const AllToys = () => {
                                 );
                             })}
                         </table>
-                        <div>
-                            <nav
-                                className="flex items-center justify-between pt-4"
-                                aria-label="Table navigation"
-                            >
-                                <span className="text-sm font-normal text-gray-500 dark:text-gray-400">
-                                    Showing{" "}
-                                    <span className="font-semibold text-gray-900 dark:text-white">
-                                        1-10
-                                    </span>{" "}
-                                    of{" "}
-                                    <span className="font-semibold text-gray-900 dark:text-white">
-                                        {(toys.length / 10) * 10}
-                                    </span>
-                                </span>
-                                <ul className="inline-flex items-center -space-x-px">
-                                    <li>
-                                        <a
-                                            href="#"
-                                            className="block px-3 py-2 ml-0 leading-tight text-gray-500 bg-white border border-gray-300 rounded-l-lg hover:bg-gray-100 hover:text-gray-700 dark:bg-gray-800 dark:border-gray-700 dark:text-gray-400 dark:hover:bg-gray-700 dark:hover:text-white"
-                                        >
-                                            <span className="sr-only">
-                                                Previous
-                                            </span>
-                                            <svg
-                                                className="w-5 h-5"
-                                                aria-hidden="true"
-                                                fill="currentColor"
-                                                viewBox="0 0 20 20"
-                                                xmlns="http://www.w3.org/2000/svg"
-                                            >
-                                                <path
-                                                    fillRule="evenodd"
-                                                    d="M12.707 5.293a1 1 0 010 1.414L9.414 10l3.293 3.293a1 1 0 01-1.414 1.414l-4-4a1 1 0 010-1.414l4-4a1 1 0 011.414 0z"
-                                                    clipRule="evenodd"
-                                                ></path>
-                                            </svg>
-                                        </a>
-                                    </li>
-                                    <li>
-                                        <a
-                                            href="#"
-                                            className="px-3 py-2 leading-tight text-gray-500 bg-white border border-gray-300 hover:bg-gray-100 hover:text-gray-700 dark:bg-gray-800 dark:border-gray-700 dark:text-gray-400 dark:hover:bg-gray-700 dark:hover:text-white"
-                                        >
-                                            1
-                                        </a>
-                                    </li>
-                                    <li>
-                                        <a
-                                            href="#"
-                                            className="block px-3 py-2 leading-tight text-gray-500 bg-white border border-gray-300 rounded-r-lg hover:bg-gray-100 hover:text-gray-700 dark:bg-gray-800 dark:border-gray-700 dark:text-gray-400 dark:hover:bg-gray-700 dark:hover:text-white"
-                                        >
-                                            <span className="sr-only">
-                                                Next
-                                            </span>
-                                            <svg
-                                                className="w-5 h-5"
-                                                aria-hidden="true"
-                                                fill="currentColor"
-                                                viewBox="0 0 20 20"
-                                                xmlns="http://www.w3.org/2000/svg"
-                                            >
-                                                <path
-                                                    fillRule="evenodd"
-                                                    d="M7.293 14.707a1 1 0 010-1.414L10.586 10 7.293 6.707a1 1 0 011.414-1.414l4 4a1 1 0 010 1.414l-4 4a1 1 0 01-1.414 0z"
-                                                    clipRule="evenodd"
-                                                ></path>
-                                            </svg>
-                                        </a>
-                                    </li>
-                                </ul>
-                            </nav>
-                        </div>
                     </div>
                 </div>
             )}

@@ -77,7 +77,7 @@ const Navbar = () => {
                         </ul>
                     </div>
                     <Link to="/">
-                        <img className="h-16" src={logo} alt="" />
+                        <img className="w-24 md:w-36" src={logo} alt="" />
                     </Link>
                 </div>
                 <div className="navbar-center hidden lg:flex">
@@ -211,13 +211,13 @@ const Navbar = () => {
                         <div className="space-x-2">
                             <Link
                                 to="login"
-                                className="btn btn-outline btn-error "
+                                className="btn btn-sm md:btn-md btn-outline btn-error "
                             >
                                 Login
                             </Link>
                             <Link
                                 to="register"
-                                className="btn btn-outline btn-error "
+                                className="btn btn-sm md:btn-md btn-outline btn-error "
                             >
                                 Register
                             </Link>

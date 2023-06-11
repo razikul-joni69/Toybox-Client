@@ -42,21 +42,17 @@ const EditToyModal = ({ toy, showModal, setShowModal }) => {
                 body: JSON.stringify(updatedToy),
                 headers: {
                     "Content-Type": "application/json",
-                    "Access-Control-Allow-Origin": "*",
-                    "Access-Control-Allow-Methods":
-                        "GET, POST, PUT, PATCH, DELETE, OPTION",
                 },
             }
         )
             .then((res) => {
-                console.log(res);
                 if (res.ok) {
                     setShowModal(false);
                     showSuccessMessage("🧸 Toy Updated Successfully");
                 }
             })
             .catch((err) => {
-                showErrorMessage(err.message);
+                showErrorMessage("Toy not updated ~ ", err.message);
             });
     };
     return (

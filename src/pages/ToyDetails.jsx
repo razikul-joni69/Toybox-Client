@@ -95,7 +95,7 @@ const ToyDetails = () => {
                         </div>
                         <div className="">
                             <p className="leading-relaxed mb-4">
-                                {toy.toy_details}
+                                {toy.toy_description}
                             </p>
                             <h4 className=" text-gray-900 text-lg title-font font-medium mb-1">
                                 Seller:{" "}

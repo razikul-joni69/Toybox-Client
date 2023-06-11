@@ -9,7 +9,9 @@ const Toys = () => {
     const [tabIndex, setTabIndex] = useState(0);
 
     useEffect(() => {
-        fetch("https://toybox-server-gamma.vercel.app/api/v1/alltoys")
+        fetch(
+            `https://toybox-server-gamma.vercel.app/api/v1/alltoys?search=&limit=16`
+        )
             .then((res) => res.json())
             .then((data) => setToys(data));
     }, []);

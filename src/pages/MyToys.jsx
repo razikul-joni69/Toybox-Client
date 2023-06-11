@@ -88,7 +88,7 @@ const MyToys = () => {
         <>
             {toys.length > 0 ? (
                 <div>
-                    <div className="container mx-auto grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 items-center sm:my-5 justify-items-center lg:justify-between pb-4">
+                    <div className="container space-y-3 mx-auto flex flex-wrap justify-center md:justify-between items-end my-5">
                         <select
                             defaultValue={"selected"}
                             className="select select-primary w-full max-w-xs "
@@ -96,10 +96,12 @@ const MyToys = () => {
                             <option disabled hidden value="selected">
                                 Select How Many Toys Want To Show
                             </option>
-                            <option>10</option>
-                            <option>20</option>
-                            <option>25</option>
-                            <option>30</option>
+                            <option value="10">Display 10 Toys</option>
+                            <option value="20">Display 20 Toys</option>
+                            <option value="25">Display 25 Toys</option>
+                            <option value="30">Display 30 Toys</option>
+                            <option value="40">Display 40 Toys</option>
+                            <option value="50">Display 50 Toys</option>
                         </select>
 
                         <select
@@ -113,18 +115,6 @@ const MyToys = () => {
                             <option value="1">Ascending</option>
                             <option value="-1">Descending</option>
                         </select>
-
-                        <div className="relative">
-                            <input
-                                type="text"
-                                placeholder="Search Here..."
-                                className="input input-bordered w-full  pr-40"
-                            />
-
-                            <button className="btn btn-primary absolute top-0 right-0 rounded-l-none">
-                                Search
-                            </button>
-                        </div>
                     </div>
                     <div className="overflow-x-auto">
                         <table className="table">
@@ -207,7 +197,6 @@ const MyToys = () => {
                                                     />
                                                 </label>
                                             </th>
-
                                             <th>
                                                 <Link className="">
                                                     <img
@@ -227,80 +216,6 @@ const MyToys = () => {
                                 );
                             })}
                         </table>
-                        <div>
-                            <nav
-                                className="flex items-center justify-between pt-4"
-                                aria-label="Table navigation"
-                            >
-                                <span className="text-sm font-normal text-gray-500 dark:text-gray-400">
-                                    Showing{" "}
-                                    <span className="font-semibold text-gray-900 dark:text-white">
-                                        1-10
-                                    </span>{" "}
-                                    of{" "}
-                                    <span className="font-semibold text-gray-900 dark:text-white">
-                                        {(toys.length / 10) * 10}
-                                    </span>
-                                </span>
-                                <ul className="inline-flex items-center -space-x-px">
-                                    <li>
-                                        <a
-                                            href="#"
-                                            className="block px-3 py-2 ml-0 leading-tight text-gray-500 bg-white border border-gray-300 rounded-l-lg hover:bg-gray-100 hover:text-gray-700 dark:bg-gray-800 dark:border-gray-700 dark:text-gray-400 dark:hover:bg-gray-700 dark:hover:text-white"
-                                        >
-                                            <span className="sr-only">
-                                                Previous
-                                            </span>
-                                            <svg
-                                                className="w-5 h-5"
-                                                aria-hidden="true"
-                                                fill="currentColor"
-                                                viewBox="0 0 20 20"
-                                                xmlns="http://www.w3.org/2000/svg"
-                                            >
-                                                <path
-                                                    fillRule="evenodd"
-                                                    d="M12.707 5.293a1 1 0 010 1.414L9.414 10l3.293 3.293a1 1 0 01-1.414 1.414l-4-4a1 1 0 010-1.414l4-4a1 1 0 011.414 0z"
-                                                    clipRule="evenodd"
-                                                ></path>
-                                            </svg>
-                                        </a>
-                                    </li>
-                                    <li>
-                                        <a
-                                            href="#"
-                                            className="px-3 py-2 leading-tight text-gray-500 bg-white border border-gray-300 hover:bg-gray-100 hover:text-gray-700 dark:bg-gray-800 dark:border-gray-700 dark:text-gray-400 dark:hover:bg-gray-700 dark:hover:text-white"
-                                        >
-                                            1
-                                        </a>
-                                    </li>
-
-                                    <li>
-                                        <a
-                                            href="#"
-                                            className="block px-3 py-2 leading-tight text-gray-500 bg-white border border-gray-300 rounded-r-lg hover:bg-gray-100 hover:text-gray-700 dark:bg-gray-800 dark:border-gray-700 dark:text-gray-400 dark:hover:bg-gray-700 dark:hover:text-white"
-                                        >
-                                            <span className="sr-only">
-                                                Next
-                                            </span>
-                                            <svg
-                                                className="w-5 h-5"
-                                                aria-hidden="true"
-                                                fill="currentColor"
-                                                viewBox="0 0 20 20"
-                                                xmlns="http://www.w3.org/2000/svg"
-                                            >
-                                                <path
-                                                    fillRule="evenodd"
-                                                    d="M7.293 14.707a1 1 0 010-1.414L10.586 10 7.293 6.707a1 1 0 011.414-1.414l4 4a1 1 0 010 1.414l-4 4a1 1 0 01-1.414 0z"
-                                                    clipRule="evenodd"
-                                                ></path>
-                                            </svg>
-                                        </a>
-                                    </li>
-                                </ul>
-                            </nav>
-                        </div>
                         <EditToyModal
                             toy={modalData}
                             showModal={showModal}

@@ -1,11 +1,40 @@
 /* eslint-disable react/prop-types */
 import { Rating } from "@smastrom/react-rating";
-import { Link } from "react-router-dom";
+import { useContext } from "react";
+import { Link, useNavigate } from "react-router-dom";
+import Swal from "sweetalert2";
+import { AuthContext } from "../../Providers/AuthProvider";
+import Loading from "../Loading/Loading";
 import NoToysFound from "../NoToysFound/NoToysFound";
 
 const ToysCard = ({ toy }) => {
+    const { user, loading } = useContext(AuthContext);
+    const navigate = useNavigate();
     const { _id, toy_name, toy_img, price, rating } = toy;
-    console.log(toy);
+
+    const handleToyDetails = (id) => {
+        if (!user) {
+            Swal.fire({
+                title: "Are you sure You want to login?",
+                text: "🧸 You Have to Login First To View the toy details!",
+                icon: "warning",
+                showCancelButton: true,
+                confirmButtonColor: "#3085d6",
+                cancelButtonColor: "#d33",
+                confirmButtonText: "Yes, Goto Login Page!",
+            }).then((result) => {
+                if (result.isConfirmed) {
+                    navigate(`/toy/${id}`);
+                }
+            });
+        } else {
+            navigate(`/toy/${id}`);
+        }
+    };
+
+    if (loading) {
+        return <Loading />;
+    }
 
     return (
         <div>
@@ -22,7 +51,6 @@ const ToysCard = ({ toy }) => {
                             alt="product image"
                         />
                     </div>
-                    {/* FIXIT: set the card details in the end */}
                     <div className="">
                         <div className="px-5 py-5   ">
                             <h5 className="text-2xl text-start font-semibold tracking-tight text-gray-900 dark:text-white">
@@ -40,7 +68,7 @@ const ToysCard = ({ toy }) => {
                                     readOnly
                                 />
                                 <Link
-                                    to={`/toy/${_id}`}
+                                    onClick={() => handleToyDetails(_id)}
                                     className="btn btn-error text-white"
                                 >
                                     Show Details
